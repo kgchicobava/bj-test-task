@@ -1,7 +1,9 @@
 import { FETCH_TASKS, ADD_TASK } from "../actions/constants";
 
 const initialState = {
-    tasks : []
+    tasks : [],
+    numOfTasks: 0,
+    page: 1
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -10,7 +12,8 @@ export default (state = initialState, { type, payload }) => {
         return {...state, tasks: [...state.tasks, payload]}
 
     case FETCH_TASKS:
-        return { ...state, tasks: [...payload] }
+        console.log(payload)
+        return { ...state, tasks: payload.tasks,  numOfTasks: payload.numOfTasks, page: payload.page}
 
     default:
         return state

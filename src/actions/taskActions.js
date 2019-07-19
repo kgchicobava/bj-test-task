@@ -7,7 +7,7 @@ export const addTask = task => dispatch => {
 			task
 		)
 		.then(res => {
-            dispatch({type: ADD_TASK, payload: res.data.message})
+            // dispatch({type: ADD_TASK, payload: res.data.message})
 		})
 		.catch(err => {
 			console.log(err)
@@ -17,7 +17,16 @@ export const addTask = task => dispatch => {
 export const getTasks = () => dispatch => {
     axios.get("https://uxcandy.com/~shapoval/test-task-backend/v2/?developer=RomanDemyanyuk")
         .then(res => {
-            dispatch({type: FETCH_TASKS, payload: res.data.message.tasks})
+            console.log(res);
+            dispatch({type: FETCH_TASKS, payload: {tasks: res.data.message.tasks, numOfTasks: res.data.message.total_task_count, page: 1}})
+        })
+        .catch(err => console.log(err))
+}
+
+export const changePage = page => dispatch => {
+    axios.get(`https://uxcandy.com/~shapoval/test-task-backend/v2/?developer=RomanDemyanyuk&page=${page}`)
+        .then(res => {
+            dispatch({type: FETCH_TASKS, payload: {tasks: res.data.message.tasks, numOfTasks: res.data.message.total_task_count, page}})
         })
         .catch(err => console.log(err))
 }
