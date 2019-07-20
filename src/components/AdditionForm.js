@@ -30,7 +30,7 @@ class AdditionForm extends Component {
 			<div>
 				<Form>
 					<FormGroup>
-						<Label for="exampleEmail">Username</Label>
+						<Label for="username">Username</Label>
 						<Input
 							type="text"
 							name="username"
@@ -40,7 +40,7 @@ class AdditionForm extends Component {
 						/>
 					</FormGroup>
 					<FormGroup>
-						<Label for="examplePassword">E-mail</Label>
+						<Label for="email">E-mail</Label>
 						<Input
 							type="email"
 							name="email"
@@ -50,7 +50,7 @@ class AdditionForm extends Component {
 						/>
 					</FormGroup>
 					<FormGroup>
-						<Label for="exampleText">Task</Label>
+						<Label for="text">Task</Label>
 						<Input
 							type="textarea"
 							onChange={this.onChange}

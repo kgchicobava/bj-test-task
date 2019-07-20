@@ -27,7 +27,7 @@ export class TasksList extends Component {
             <option>Descending</option>
           </Input>
         </FormGroup>
-            {tasks.map(elem => <Task username={elem.username} key={elem.id} status={elem.status} email={elem.email} text={elem.text} />)}
+            {tasks.map(elem => <Task username={elem.username} key={elem.id} id={elem.id} status={elem.status} email={elem.email} text={elem.text} />)}
             <PaginationSteps number={5} />
         </div> : <p>Loading</p>);
 	}

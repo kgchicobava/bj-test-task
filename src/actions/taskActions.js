@@ -30,3 +30,10 @@ export const changePage = page => dispatch => {
         })
         .catch(err => console.log(err))
 }
+
+export const changeTask = (id, change) => dispatch => {
+    console.log(change)
+    axios.post(`https://uxcandy.com/~shapoval/test-task-backend/v2/edit/${id}?developer=RomanDemyanyuk`,change)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+}
