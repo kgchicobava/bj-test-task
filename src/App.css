@@ -1,0 +1,40 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.edit-controls button {
+    margin-left: 5px;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.checkbox, .task-edit {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-content {
+    width: 85%;
+}
+
+.task-bold {
+    font-weight: bold;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+input[type=checkbox] {width:25px; height:25px;};

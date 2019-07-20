@@ -51,7 +51,7 @@ export class LoginModal extends Component {
 		const { errors } = this.props;
 		return (
 			<div>
-				<Button color="danger" onClick={this.toggle}>
+				<Button color="success" onClick={this.toggle}>
 					Login
 				</Button>
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -71,7 +71,7 @@ export class LoginModal extends Component {
 								<FormFeedback>{errors.username}</FormFeedback>
 							</FormGroup>
 							<FormGroup>
-								<Label for="password">E-mail</Label>
+								<Label for="password">Password</Label>
 								<Input
 									invalid={Boolean(errors.password)}
 									type="password"

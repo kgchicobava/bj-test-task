@@ -8,7 +8,9 @@ import {
 	CardSubtitle,
 	Button,
 	Label,
-	Input
+	Input,
+	Row,
+	Col
 } from "reactstrap";
 import { connect } from "react-redux";
 import { changeTask } from "../actions/taskActions";
@@ -54,30 +56,42 @@ class Task extends Component {
 	};
 
 	render() {
+		const completed = +this.props.status === 10;
+		console.log(this.props)
 		const { isAuthenticated } = this.props;
 		return (
 			<div>
 				<Card>
 					<CardBody>
-						{isAuthenticated ? (
-							<Label check>
-								<Input
-									onChange={this.onCheck}
-									checked={Boolean(+this.props.status)}
-									name="complete"
-									type="checkbox"
-								/>
-							</Label>
-						) : (
-							""
-						)}
-						{!this.state.allowEdit && isAuthenticated && (
-							<Button onClick={this.allowEdit}>Edit</Button>
-						)}
-
-						<CardTitle>Created by: {this.props.username}</CardTitle>
-						<CardSubtitle>Email: {this.props.email}</CardSubtitle>
-						<CardText>{this.props.text}</CardText>
+						<div className="grid-container">
+							{isAuthenticated && (
+								<div className="checkbox">
+									<Input
+										onChange={this.onCheck}
+										checked={Boolean(+this.props.status)}
+										name="complete"
+										type="checkbox"
+										size="lg"
+									/>
+								</div>
+							) }
+							<div className="task-content">
+								<CardTitle className={`task-bold ${completed && "completed"}`}>{this.props.text}</CardTitle>
+								<CardSubtitle>
+									Created by: {this.props.username}
+								</CardSubtitle>
+								<CardText>Email: {this.props.email}</CardText>
+							</div>
+							<div className="task-edit">
+								{!this.state.allowEdit && isAuthenticated && (
+									<Button
+										color="primary"
+										onClick={this.allowEdit}>
+										Edit
+									</Button>
+								)}
+							</div>
+						</div>
 						{this.state.allowEdit && (
 							<FormGroup>
 								<Label for="text">Edit:</Label>
@@ -87,12 +101,23 @@ class Task extends Component {
 									value={this.state.editText}
 									name="text"
 								/>
-								<Button onClick={this.onSave}>Save</Button>
-								<Button onClick={this.onCancel}>Cancel</Button>
+								<div className="edit-controls">
+									<Button
+										color="success"
+										onClick={this.onSave}>
+										Save
+									</Button>
+									<Button
+										color="danger"
+										onClick={this.onCancel}>
+										Cancel
+									</Button>
+								</div>
 							</FormGroup>
 						)}
 					</CardBody>
 				</Card>
+				<br/>
 			</div>
 		);
 	}

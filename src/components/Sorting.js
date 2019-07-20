@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { FormGroup, Label, Input } from "reactstrap";
+import { FormGroup, Label, Input, Row, Col } from "reactstrap";
 import { sortTasks } from "../actions/taskActions";
 
 export class Sorting extends Component {
@@ -19,33 +19,50 @@ export class Sorting extends Component {
 	render() {
 		return (
 			<div>
-				<FormGroup>
-					<Label for="exampleSelect">Sort by: </Label>
-					<Input onChange={this.onSelect} type="select" name="field">
-						<option value="sort_field=" />
-						<option value="sort_field=email">E-mail</option>
-						<option value="sort_field=username">Username</option>
-						<option value="sort_field=status">Status</option>
-						<option value="sort_field=id">ID</option>
-					</Input>
-				</FormGroup>
-				<FormGroup>
-					<Label for="exampleSelect">Sort direction: </Label>
-					<Input
-						type="select"
-						onChange={this.onSelect}
-						name="direction">
-						<option value="sort_direction=" />
-						<option value="sort_direction=asc">Ascending</option>
-						<option value="sort_direction=desc">Descending</option>
-					</Input>
-				</FormGroup>
+				{/* <br/> */}
+				<hr/>
+				<Row form>
+					<Col md={6}>
+						<FormGroup>
+							<Label for="exampleSelect">Sort by: </Label>
+							<Input
+								onChange={this.onSelect}
+								type="select"
+								name="field">
+								<option value="sort_field=" />
+								<option value="sort_field=email">E-mail</option>
+								<option value="sort_field=username">
+									Username
+								</option>
+								<option value="sort_field=status">
+									Status
+								</option>
+								<option value="sort_field=id">ID</option>
+							</Input>
+						</FormGroup>
+					</Col>
+					<Col md={6}>
+						<FormGroup>
+							<Label for="exampleSelect">Sort direction: </Label>
+							<Input
+								type="select"
+								onChange={this.onSelect}
+								name="direction">
+								<option value="sort_direction=" />
+								<option value="sort_direction=asc">
+									Ascending
+								</option>
+								<option value="sort_direction=desc">
+									Descending
+								</option>
+							</Input>
+						</FormGroup>
+					</Col>
+				</Row>
 			</div>
 		);
 	}
 }
-
-const mapStateToProps = state => ({});
 
 export default connect(
 	null,

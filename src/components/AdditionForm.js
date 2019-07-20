@@ -6,7 +6,9 @@ import {
 	FormGroup,
 	Label,
 	Input,
-	FormFeedback
+	FormFeedback,
+	Col,
+	Row
 } from "reactstrap";
 import { addTask } from "../actions/taskActions";
 
@@ -46,7 +48,10 @@ class AdditionForm extends Component {
 		const { errors } = this.props;
 		return (
 			<div>
+				<br/>
 				<Form>
+					<Row form>
+						<Col md={6}>
 					<FormGroup>
 						<Label for="username">Username</Label>
 						<Input
@@ -59,6 +64,8 @@ class AdditionForm extends Component {
 						/>
 						<FormFeedback>{errors.username}</FormFeedback>
 					</FormGroup>
+					</Col>
+					<Col md={6}>
 					<FormGroup>
 						<Label for="email">E-mail</Label>
 						<Input
@@ -71,6 +78,8 @@ class AdditionForm extends Component {
 						/>
 						<FormFeedback>{errors.email}</FormFeedback>
 					</FormGroup>
+					</Col>
+					</Row>
 					<FormGroup>
 						<Label for="text">Task</Label>
 						<Input
@@ -79,11 +88,12 @@ class AdditionForm extends Component {
 							onChange={this.onChange}
 							value={this.state.text}
 							name="text"
+							placeholder="Enter your task..."
 						/>
 						<FormFeedback>{errors.text}</FormFeedback>
 					</FormGroup>
 
-					<Button onClick={this.onSubmit}>Add</Button>
+					<Button outline color="success" block onClick={this.onSubmit}>Add Task</Button>
 				</Form>
 			</div>
 		);

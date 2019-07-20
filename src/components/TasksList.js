@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTasks } from "../actions/taskActions";
 import Task from "./Task";
-import { Alert } from "reactstrap";
+import { Alert, Spinner } from "reactstrap";
 import PaginationSteps from "./Pagination";
 import Sorting from "./Sorting";
 
@@ -29,7 +29,7 @@ export class TasksList extends Component {
 				<PaginationSteps number={numOfTasks} />
 			</div>
 		) : (
-			<p>Loading</p>
+			<Spinner type="grow" color="warning" />
 		);
 	}
 }
