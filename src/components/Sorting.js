@@ -4,26 +4,25 @@ import { FormGroup, Label, Input } from "reactstrap";
 import { sortTasks } from "../actions/taskActions";
 
 export class Sorting extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            field: "sort_field=",
-            direction: "sort_direction="
-        }
-    }
-    onSelect = (ev) => {
-        this.setState({[ev.target.name]: ev.target.value})
-        console.log(ev.target.value, ev.target.name)
-        this.props.sortTasks(`${this.state.field}&${this.state.direction}`)
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			field: "sort_field=",
+			direction: "sort_direction="
+		};
+	}
+	onSelect = ev => {
+		this.setState({ [ev.target.name]: ev.target.value });
+		this.props.sortTasks(`${this.state.field}&${this.state.direction}`);
+	};
 
-    render() {
+	render() {
 		return (
 			<div>
 				<FormGroup>
 					<Label for="exampleSelect">Sort by: </Label>
 					<Input onChange={this.onSelect} type="select" name="field">
-						<option value="sort_field="></option>
+						<option value="sort_field=" />
 						<option value="sort_field=email">E-mail</option>
 						<option value="sort_field=username">Username</option>
 						<option value="sort_field=status">Status</option>
@@ -32,8 +31,11 @@ export class Sorting extends Component {
 				</FormGroup>
 				<FormGroup>
 					<Label for="exampleSelect">Sort direction: </Label>
-					<Input type="select" onChange={this.onSelect} name="direction">
-						<option value="sort_direction="></option>
+					<Input
+						type="select"
+						onChange={this.onSelect}
+						name="direction">
+						<option value="sort_direction=" />
 						<option value="sort_direction=asc">Ascending</option>
 						<option value="sort_direction=desc">Descending</option>
 					</Input>
@@ -45,4 +47,7 @@ export class Sorting extends Component {
 
 const mapStateToProps = state => ({});
 
-export default connect(null, {sortTasks})(Sorting);
+export default connect(
+	null,
+	{ sortTasks }
+)(Sorting);

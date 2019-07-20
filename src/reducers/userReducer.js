@@ -1,17 +1,16 @@
-import {LOGIN_USER, LOGOUT_USER} from "../actions/constants";
+import { LOGIN_USER, LOGOUT_USER } from "../actions/constants";
 const initialState = {
-    isAuthenticated : false,
-}
+	isAuthenticated: false
+};
 
 export default (state = initialState, { type, payload }) => {
-    switch (type) {
+	switch (type) {
+		case LOGIN_USER:
+			return { ...state, isAuthenticated: true };
 
-    case LOGIN_USER:
-        return { ...state, isAuthenticated: true }
-
-    case LOGOUT_USER:
-        return {...state, isAuthenticated: false}
-    default:
-        return state
-    }
-}
+		case LOGOUT_USER:
+			return { ...state, isAuthenticated: false };
+		default:
+			return state;
+	}
+};
