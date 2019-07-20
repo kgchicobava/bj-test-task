@@ -39,3 +39,12 @@ export const changeTask = (id, change) => dispatch => {
         .then(res => console.log(res))
         .catch(err => console.log(err))
 }
+
+export const sortTasks = (paramStr) => dispatch => {
+    axios.get(`https://uxcandy.com/~shapoval/test-task-backend/v2/?developer=RomanDemyanyuk&${paramStr}`)
+        .then(res => {
+            console.log(res)
+            dispatch({type: FETCH_TASKS, payload: {tasks: res.data.message.tasks, numOfTasks: res.data.message.total_task_count, page: 1}})
+        })
+        .catch(err => console.log(err))
+}
