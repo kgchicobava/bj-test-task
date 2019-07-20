@@ -88,7 +88,7 @@ export class LoginModal extends Component {
 						<Button color="primary" onClick={this.onSubmit}>
 							Login
 						</Button>{" "}
-						<Button color="secondary" onClick={this.toggle}>
+						<Button color="danger" onClick={this.toggle}>
 							Cancel
 						</Button>
 					</ModalFooter>

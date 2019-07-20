@@ -19,8 +19,7 @@ export class Sorting extends Component {
 	render() {
 		return (
 			<div>
-				{/* <br/> */}
-				<hr/>
+				<hr />
 				<Row form>
 					<Col md={6}>
 						<FormGroup>

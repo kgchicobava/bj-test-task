@@ -20,7 +20,11 @@ export class PaginationSteps extends Component {
 	};
 
 	render() {
-		return <div className="pagination">{this.renderPages(this.props.number)}</div>;
+		return (
+			<div className="pagination">
+				{this.renderPages(this.props.number)}
+			</div>
+		);
 	}
 }
 

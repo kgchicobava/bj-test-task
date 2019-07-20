@@ -1,4 +1,4 @@
-import { FETCH_TASKS, ADD_TASK, EDIT_TASK } from "../actions/constants";
+import { FETCH_TASKS, EDIT_TASK } from "../actions/constants";
 
 const initialState = {
 	tasks: [],
@@ -8,8 +8,6 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
 	switch (type) {
-		case ADD_TASK:
-			return { ...state, tasks: [...state.tasks, payload] };
 
 		case FETCH_TASKS:
 			return {
@@ -29,6 +27,7 @@ export default (state = initialState, { type, payload }) => {
 					return elem;
 				})
 			};
+
 		default:
 			return state;
 	}

@@ -15,7 +15,7 @@ export class Appbar extends Component {
 		const { isAuthenticated } = this.props;
 		return (
 			<Navbar color="primary" light expand="md">
-				<NavbarBrand href="/">TODO App</NavbarBrand>
+				<NavbarBrand>TODO App</NavbarBrand>
 				<Nav className="ml-auto" navbar>
 					<NavItem>
 						{isAuthenticated ? (

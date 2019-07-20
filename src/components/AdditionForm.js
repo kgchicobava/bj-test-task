@@ -48,37 +48,37 @@ class AdditionForm extends Component {
 		const { errors } = this.props;
 		return (
 			<div>
-				<br/>
+				<br />
 				<Form>
 					<Row form>
 						<Col md={6}>
-					<FormGroup>
-						<Label for="username">Username</Label>
-						<Input
-							invalid={Boolean(errors.username)}
-							type="text"
-							name="username"
-							placeholder="Enter your username"
-							value={this.state.username}
-							onChange={this.onChange}
-						/>
-						<FormFeedback>{errors.username}</FormFeedback>
-					</FormGroup>
-					</Col>
-					<Col md={6}>
-					<FormGroup>
-						<Label for="email">E-mail</Label>
-						<Input
-							invalid={Boolean(errors.email)}
-							type="email"
-							name="email"
-							placeholder="Enter your E-mail"
-							value={this.state.email}
-							onChange={this.onChange}
-						/>
-						<FormFeedback>{errors.email}</FormFeedback>
-					</FormGroup>
-					</Col>
+							<FormGroup>
+								<Label for="username">Username</Label>
+								<Input
+									invalid={Boolean(errors.username)}
+									type="text"
+									name="username"
+									placeholder="Enter your username"
+									value={this.state.username}
+									onChange={this.onChange}
+								/>
+								<FormFeedback>{errors.username}</FormFeedback>
+							</FormGroup>
+						</Col>
+						<Col md={6}>
+							<FormGroup>
+								<Label for="email">E-mail</Label>
+								<Input
+									invalid={Boolean(errors.email)}
+									type="email"
+									name="email"
+									placeholder="Enter your E-mail"
+									value={this.state.email}
+									onChange={this.onChange}
+								/>
+								<FormFeedback>{errors.email}</FormFeedback>
+							</FormGroup>
+						</Col>
 					</Row>
 					<FormGroup>
 						<Label for="text">Task</Label>
@@ -93,7 +93,13 @@ class AdditionForm extends Component {
 						<FormFeedback>{errors.text}</FormFeedback>
 					</FormGroup>
 
-					<Button outline color="success" block onClick={this.onSubmit}>Add Task</Button>
+					<Button
+						outline
+						color="success"
+						block
+						onClick={this.onSubmit}>
+						Add Task
+					</Button>
 				</Form>
 			</div>
 		);
@@ -101,7 +107,6 @@ class AdditionForm extends Component {
 }
 
 const mapStateToProps = state => ({
-	auth: state.auth,
 	errors: state.errors.adding,
 	numOfTasks: state.tasks.numOfTasks
 });

@@ -1,7 +1,5 @@
-import { ADD_TASK, FETCH_TASKS, EDIT_TASK, SET_ERROR, CLEAR_ERROR } from "./constants";
+import { FETCH_TASKS, EDIT_TASK, SET_ERROR, CLEAR_ERROR } from "./constants";
 import axios from "axios";
-
-
 
 export const getTasks = () => dispatch => {
 	axios
@@ -35,7 +33,7 @@ export const addTask = task => dispatch => {
 				});
 			} else {
 				getTasks()(dispatch);
-				dispatch({type: CLEAR_ERROR, payload: "adding"})
+				dispatch({ type: CLEAR_ERROR, payload: "adding" });
 			}
 		})
 		.catch(err => {

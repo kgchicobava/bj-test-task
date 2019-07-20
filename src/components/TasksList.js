@@ -4,7 +4,6 @@ import { getTasks } from "../actions/taskActions";
 import Task from "./Task";
 import { Alert, Spinner } from "reactstrap";
 import PaginationSteps from "./Pagination";
-import Sorting from "./Sorting";
 
 export class TasksList extends Component {
 	componentDidMount() {
@@ -14,7 +13,6 @@ export class TasksList extends Component {
 		const { tasks, numOfTasks, errors } = this.props;
 		return tasks ? (
 			<div>
-				<Sorting />
 				{errors && <Alert color="danger">{errors}</Alert>}
 				{tasks.map(elem => (
 					<Task

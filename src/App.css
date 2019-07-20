@@ -1,40 +1,44 @@
 .pagination {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .edit-controls {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 5px;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 5px;
 }
 
 .edit-controls button {
-    margin-left: 5px;
+	margin-left: 5px;
 }
 
 .grid-container {
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
-.checkbox, .task-edit {
-    width: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.checkbox,
+.task-edit {
+	width: 5%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .task-content {
-    width: 85%;
+	width: 85%;
 }
 
 .task-bold {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .completed {
-    text-decoration: line-through;
+	text-decoration: line-through;
 }
 
-input[type=checkbox] {width:25px; height:25px;};
+input[type="checkbox"] {
+	width: 25px;
+	height: 25px;
+}

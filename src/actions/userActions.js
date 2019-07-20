@@ -18,7 +18,7 @@ export const loginUser = credentials => dispatch => {
 				const { token } = res.data.message;
 				localStorage.setItem("token", token);
 				dispatch({ type: LOGIN_USER });
-				dispatch({ CLEAR_ERROR, payload: "login" });
+				dispatch({ type: CLEAR_ERROR, payload: "login" });
 			}
 		})
 		.catch(err => console.error(err));

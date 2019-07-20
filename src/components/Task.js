@@ -8,9 +8,7 @@ import {
 	CardSubtitle,
 	Button,
 	Label,
-	Input,
-	Row,
-	Col
+	Input
 } from "reactstrap";
 import { connect } from "react-redux";
 import { changeTask } from "../actions/taskActions";
@@ -57,8 +55,7 @@ class Task extends Component {
 
 	render() {
 		const completed = +this.props.status === 10;
-		console.log(this.props)
-		const { isAuthenticated } = this.props;
+		const { isAuthenticated, status, username, email } = this.props;
 		return (
 			<div>
 				<Card>
@@ -68,19 +65,23 @@ class Task extends Component {
 								<div className="checkbox">
 									<Input
 										onChange={this.onCheck}
-										checked={Boolean(+this.props.status)}
+										checked={Boolean(+status)}
 										name="complete"
 										type="checkbox"
-										size="lg"
+										bsSize="lg"
 									/>
 								</div>
-							) }
+							)}
 							<div className="task-content">
-								<CardTitle className={`task-bold ${completed && "completed"}`}>{this.props.text}</CardTitle>
+								<CardTitle
+									className={`task-bold ${completed &&
+										"completed"}`}>
+									{this.props.text}
+								</CardTitle>
 								<CardSubtitle>
-									Created by: {this.props.username}
+									Created by: {username}
 								</CardSubtitle>
-								<CardText>Email: {this.props.email}</CardText>
+								<CardText>Email: {email}</CardText>
 							</div>
 							<div className="task-edit">
 								{!this.state.allowEdit && isAuthenticated && (
@@ -117,7 +118,7 @@ class Task extends Component {
 						)}
 					</CardBody>
 				</Card>
-				<br/>
+				<br />
 			</div>
 		);
 	}
