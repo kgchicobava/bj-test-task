@@ -53,7 +53,7 @@ class Task extends Component {
 						{isAuthenticated ? <Label check>
 								<Input onChange={this.onCheck} checked={Boolean(+this.props.status)} name="complete" type="checkbox" />
 							</Label> : ""}
-							{!this.state.allowEdit && <Button onClick={this.allowEdit}>Edit</Button>}
+							{!this.state.allowEdit && isAuthenticated && <Button onClick={this.allowEdit}>Edit</Button>}
 
 						<CardTitle>Created by: {this.props.username}</CardTitle>
 						<CardSubtitle>Email: {this.props.email}</CardSubtitle>

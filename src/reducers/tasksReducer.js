@@ -1,4 +1,4 @@
-import { FETCH_TASKS, ADD_TASK } from "../actions/constants";
+import { FETCH_TASKS, ADD_TASK, EDIT_TASK } from "../actions/constants";
 
 const initialState = {
     tasks : [],
@@ -12,9 +12,16 @@ export default (state = initialState, { type, payload }) => {
         return {...state, tasks: [...state.tasks, payload]}
 
     case FETCH_TASKS:
-        console.log(payload)
         return { ...state, tasks: payload.tasks,  numOfTasks: payload.numOfTasks, page: payload.page}
 
+    case EDIT_TASK:
+        console.log(payload)
+        return {...state, tasks: state.tasks.map(elem => {
+            if (elem.id === payload.id) {
+                   return {...elem, [payload.pair[0]] : payload.pair[1]}
+             }
+             return elem
+         })}
     default:
         return state
     }

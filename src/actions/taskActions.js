@@ -1,4 +1,4 @@
-import {ADD_TASK, FETCH_TASKS} from "./constants";
+import {ADD_TASK, FETCH_TASKS, EDIT_TASK} from "./constants";
 import axios from "axios";
 
 export const addTask = task => dispatch => {
@@ -32,7 +32,9 @@ export const changePage = page => dispatch => {
 }
 
 export const changeTask = (id, change) => dispatch => {
-    console.log(change)
+    for (let pair of change.entries()) {
+        dispatch({type: EDIT_TASK, payload: {pair, id}})
+    }
     axios.post(`https://uxcandy.com/~shapoval/test-task-backend/v2/edit/${id}?developer=RomanDemyanyuk`,change)
         .then(res => console.log(res))
         .catch(err => console.log(err))

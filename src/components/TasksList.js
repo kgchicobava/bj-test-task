@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getTasks } from "../actions/taskActions";
 import Task from "./Task";
 import PaginationSteps from "./Pagination";
-import { FormGroup, Label, Input } from 'reactstrap';
+import Sorting from "./Sorting";
 
 export class TasksList extends Component {
     componentDidMount() {
@@ -12,21 +12,7 @@ export class TasksList extends Component {
 	render() {
         const { tasks, numOfTasks } = this.props;
 		return (tasks ? <div>
-            <FormGroup>
-          <Label for="exampleSelect">Sort by: </Label>
-          <Input type="select" name="sortby">
-            <option>E-mail</option>
-            <option>Username</option>
-            <option>Status</option>
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleSelect">Sort direction: </Label>
-          <Input type="select" name="sortdir">
-            <option>Ascending</option>
-            <option>Descending</option>
-          </Input>
-        </FormGroup>
+            <Sorting />
             {tasks.map(elem => <Task username={elem.username} key={elem.id} id={elem.id} status={elem.status} email={elem.email} text={elem.text} />)}
             <PaginationSteps number={5} />
         </div> : <p>Loading</p>);
